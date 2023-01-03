@@ -3,7 +3,7 @@ import Image from "./Image";
 
 function ProductsCard ({ src, title, description, classProduct }) {
     return (
-        <div className={`grid grid-cols-1 lg:grid-cols-2 justify-start w-100 mr-5 my-10 ${classProduct}`}>
+        <div className={`grid grid-cols-1 lg:grid-cols-2 justify-start items-center w-100 mr-5 my-10 ${classProduct}`}>
             <Image 
                 src={src}
                 width="auto"

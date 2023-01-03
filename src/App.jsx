@@ -1,114 +1,142 @@
-import './App.css'
-import Navbar from './components/Navbar'
-import Breadcrumb from './components/Breadcrumb'
-import Content from './components/Content'
-import Footer from './components/Footer'
-import Logo from './assets/icon-logo.png'
-import LogoIbisnis from './assets/logo-ibisnis.png'
+import React, { useState, useEffect } from "react";
+import "./App.css";
+import Navbar from "./components/Navbar";
+import Breadcrumb from "./components/Breadcrumb";
+import Content from "./components/Content";
+import Footer from "./components/Footer";
+import Logo from "./assets/images/icon-logo.png";
+import LogoIbisnis from "./assets/images/logo-ibisnis.png";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import TemplateJson from "../template.json";
+import InfiniteScroll from "react-infinite-scroll-component";
+import axios from "axios";
+import ProgressScrollBar from "./components/ProgressScrollBar";
 
 function App() {
-  const Menu = [
-    {
-        'href' : '#home',
-        'name' : 'Home',
-        'icon' : 'faHome'
-    },
-    {
-        'href' : '#about',
-        'name' : 'About',
-        'icon' : 'faAddressCard'
-    },
-    {
-        'href' : '#productions',
-        'name' : 'Productions',
-        'icon' : 'faGears'
-    },
-    {
-        'href' : '#contact',
-        'name' : 'Contacts',
-        'icon' : 'faMessage'
-    },
-  ]
-  
-  const DataContent = [
-    {
-      'title' : 'REAL BUSINESS REAL PEOPLE',
-      'subtitle' : 'Start your business here',
-      'description' : 'Hadir menjadi solusi terbaik dan terpercaya bagi bisnis Anda. Menawarkan beragam produk dan jasa sekaligus menjadi portal bisnis UKM di Indonesia.',
-      'about' : {
-        'title' : 'About Company',
-        'subtitle' : 'Karena untuk bisa mendapatkan lebih banyak keuntungan, organisasi harus bisa menjual lebih banyak produk atau jasa kepada pelanggan, agar pelanggan mau membeli produk dan jasa lebih banyak, pelanggan harus bisa melihat keunggulan produk kita dibandingkan dengan kompetitor, dengan kata lain produk kita memenuhi ekspektasinya.',
-        'description' : 'iBisnis.com hadir menjadi solusi terbaik dan terpercaya bagi bisnis Anda. Menawarkan beragam produk dan jasa sekaligus menjadi portal bisnis UKM di Indonesia. Jadi tunggu apa lagi? Daftar perusahaan Anda sekarang juga hanya di iBisnis.com.',
-        'thumbnail' : 'image-ex.png',
-        'data' : [
-          {
-            'title' : 'SEO',
-            'thumbnail' : 'seo 1.png',
-            'description' : ''
-          },
-          {
-            'title' : 'Dukungan Pelanggan',
-            'thumbnail' : 'adwords 1.png',
-            'description' : 'Memudahkan pencari menemukan sumber informasi sesuai dengan kata kunci'
-          },
-          
-          {
-            'title' : 'Google Adwords',
-            'thumbnail' : 'adwords 1.png',
-            'description' : 'Memudahkan pencari menemukan sumber informasi sesuai dengan kata kunci'
-          },
-        ]
-      },
-      'service' : [
-        {
-          'name' : 'CRM',
-          'slug' : 'https://www.ibisnis.com/customer-relationship-management',
-          'thumbnail' : 'customer-service 1.png',
-          'description' : 'Provides a complete suite of social collaboration, communication and management tools for your team, including files sharing, project management, calendars, and more.'
-        },
-        {
-          'name' : 'VIP Member',
-          'slug' : 'https://www.ibisnis.com/vip-member',
-          'thumbnail' : 'customer-service 1.png',
-          'description' : 'Tingkatkan bisnis Anda lebih maksimal dan dapatkan lebih banyak pengunjung dengan berlangganan keanggotaan VIP Member.'
-        },
-        {
-          'name' : 'Website',
-          'slug' : 'https://www.ibisnis.com/website',
-          'thumbnail' : 'customer-service 1.png',
-          'description' : 'Dengan membuat website di iBisnis, Anda memiliki peluang lebih besar untuk mendapatkan jutaan pengunjung dan tampil di halaman utama mesin pencari (search engine).'
-        },
-      ],
-      'benefits' : {
-        'title' : 'Benefits Of Product',
-        'description' : 'Karena untuk bisa mendapatkan lebih banyak keuntungan, organisasi harus bisa menjual lebih banyak produk atau jasa kepada pelanggan, agar pelanggan mau membeli produk dan jasa lebih banyak, pelanggan harus bisa melihat keunggulan produk kita dibandingkan dengan kompetitor, dengan kata lain produk kita memenuhi ekspektasinya.',
-        'image' : '',
-        'data' : [
-          {
-            'image' : '',
-            'name' : 'Search Engine Optimization',
-            'description' : 'Meningkatkan peringkat bisnis Anda pada halaman utama Google dan ditemukan calon customer'
-          },
-          {
-            'image' : '',
-            'name' : 'Search Engine Optimization',
-            'description' : 'Meningkatkan peringkat bisnis Anda pada halaman utama Google dan ditemukan calon customer'
-          }
-        ]
+  const [products, setProducts] = useState(false);
+  const [productsLoad, setProductsLoad] = useState(false);
+  const [posts, setPosts] = useState(false);
+  const [postsLoad, setPostsLoad] = useState(false);
+  const [limitProductsLoad, setLimitProductsLoad] = useState(6);
+  const [limitPostsLoad, setLimitPostsLoad] = useState(6);
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  const listenToScrollEvent = () => {
+    window.addEventListener("scroll", () => {
+        const scrollPx = document.documentElement.scrollTop;
+        const winHeightPx =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
+        const scrolled = Math.ceil(scrollPx / winHeightPx * 100);
+        setScrollPosition(scrolled)
       }
+    )
+  }
+
+  useEffect(() => {
+    listenToScrollEvent()
+  }, [scrollPosition])
+
+  const fetchDataProducts = (setProducts, setProductsLoad, status) => {    
+    if (status) {
+      if(limitProductsLoad < 30){
+        setLimitProductsLoad(6)
+      }
+      axios
+        .get(`https://dummyjson.com/products?limit=${limitProductsLoad}`)
+        .then((result) => {
+          setProductsLoad(result.data.products)
+        })
+      setLimitProductsLoad(limitProductsLoad + 6)
     }
-  ]
+    else {
+      setLimitProductsLoad(6)
+      axios
+        .get(`https://dummyjson.com/products?limit=${limitProductsLoad}`)
+        .then((result) => {
+          setProducts(result.data.products)
+        });
+    }
+  };
+
+  const fetchDataPosts = (setPosts, setPostsLoad, status) => {
+    if (status) {
+      if(limitPostsLoad < 30){
+        setLimitPostsLoad(6)
+      }
+      axios
+        .get(`https://dummyjson.com/products?limit=${limitPostsLoad}`)
+        .then((result) => {
+          setPostsLoad(result.data.products)
+        });
+      setLimitPostsLoad(limitPostsLoad + 6)
+    } else {
+      setLimitPostsLoad(6)
+      axios
+      .get(`https://dummyjson.com/products?limit=${limitPostsLoad}`)
+        .then((result) => {
+            setPosts(result.data.products);
+        });
+    }
+  };
+
+  useEffect(() => {
+    if(!products){
+      fetchDataProducts(setProducts, false, false);
+    }
+  }, [products]);
+
+  useEffect(() => {
+    if(!productsLoad){
+      fetchDataProducts(false, setProductsLoad, true);
+    }
+  }, [productsLoad]);
+
+  useEffect(() => {
+    if(!posts) {
+      fetchDataPosts(setPosts, false, false);
+    }
+  }, [posts])
+
+  useEffect(() => {
+    if(!postsLoad) {
+      fetchDataPosts(false, setPostsLoad, true);
+    }
+  }, [postsLoad])
+
+  // console.log(products, productsLoad, postsLoad, posts)
 
   return (
     <div className="App">
-      <Navbar Menu={Menu} Logo={Logo} LogoIbisnis={LogoIbisnis} />
-      <Breadcrumb title={DataContent[0].title} subtitle={DataContent[0].subtitle} description={DataContent[0].description} />
-      <Content DataContent={DataContent} />
-      <Footer DataContent={DataContent} Menu={Menu} Logo={Logo} LogoIbisnis={LogoIbisnis} />
+      <div className="relative">
+        <Navbar Menu={TemplateJson.menu} Logo={Logo} LogoIbisnis={LogoIbisnis} />
+        <ProgressScrollBar scroll={scrollPosition + '%'} />
+      </div>
+      <Breadcrumb
+        title={TemplateJson.section1.title}
+        subtitle={TemplateJson.section1.subtitle}
+        description={TemplateJson.section1.description}
+      />
+      <Content
+        Json={TemplateJson}
+        products={products}
+        productsLoad={productsLoad}
+        setProductsLoad={setProductsLoad}
+        fetchDataProducts={fetchDataProducts}
+        posts={posts}
+        setPostsLoad={setPostsLoad}
+        postsLoad={postsLoad}
+        fetchDataPosts={fetchDataPosts}
+      />
+      <Footer
+        Json={TemplateJson}
+        Menu={TemplateJson.menu}
+        Logo={Logo}
+        LogoIbisnis={LogoIbisnis}
+      />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

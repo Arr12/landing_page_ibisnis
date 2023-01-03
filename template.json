@@ -1,0 +1,250 @@
+{
+  "menu": [
+    {
+      "slug": "#home",
+      "name": "Home",
+      "icon": "faHome",
+      "type": "menu",
+      "submenu": ""
+    },
+    {
+      "slug": "#about",
+      "name": "About",
+      "icon": "faAddressCard",
+      "type": "menu",
+      "submenu": ""
+    },
+    {
+      "slug": "#product",
+      "name": "Product",
+      "icon": "faGears",
+      "type": "dropdown",
+      "submenu": [
+        {
+          "name": "Restaurants",
+          "slug": "https://ibisnis.com/restaurants"
+        },
+        {
+          "name": "Hotels",
+          "slug": "https://ibisnis.com/hotels"
+        },
+        {
+          "name" : "Destinations",
+          "slug" : "https://ibisnis.com/destinations"
+        },
+        {
+          "name" : "Classified",
+          "slug" : "https://ibisnis.com/iklanbaris"
+        },
+        {
+          "name" : "Educations",
+          "slug" : "https://ibisnis.com/educations"
+        },
+        {
+          "name" : "Shop",
+          "slug" : "https://ibisnis.com/shop"
+        }
+      ]
+    },
+    {
+      "href": "#contact",
+      "name": "Contacts",
+      "icon": "faMessage",
+      "type": "menu",
+      "submenu": ""
+    }
+  ],
+  "section1": {
+    "title": "REAL BUSINESS REAL PEOPLE",
+    "subtitle": "Start your business here",
+    "description": "Hadir menjadi solusi terbaik dan terpercaya bagi bisnis Anda. Menawarkan beragam produk dan jasa sekaligus menjadi portal bisnis UKM di Indonesia.",
+    "thumbnail": "",
+    "data": null
+  },
+  "section2": {
+    "title": "",
+    "subtitle": "",
+    "description": "",
+    "thumbnail": "",
+    "data": [
+      {
+        "name": "CRM",
+        "slug": "https://www.ibisnis.com/customer-relationship-management",
+        "thumbnail": "/src/assets/images/customer-service-1.png",
+        "description": "Provides a complete suite of social collaboration, communication and management tools for your team, including files sharing, project management, calendars, and more."
+      },
+      {
+        "name": "VIP Member",
+        "slug": "https://www.ibisnis.com/vip-member",
+        "thumbnail": "/src/assets/images/support.png",
+        "description": "Tingkatkan bisnis Anda lebih maksimal dan dapatkan lebih banyak pengunjung dengan berlangganan keanggotaan VIP Member."
+      },
+      {
+        "name": "Website",
+        "slug": "https://www.ibisnis.com/website",
+        "thumbnail": "/src/assets/images/resort.png",
+        "description": "Dengan membuat website di iBisnis, Anda memiliki peluang lebih besar untuk mendapatkan jutaan pengunjung dan tampil di halaman utama mesin pencari (search engine)."
+      }
+    ]
+  },
+  "section3": {
+    "title": "Benefits Of Product",
+    "subtitle": "Start your business here",
+    "description": "Karena untuk bisa mendapatkan lebih banyak keuntungan, organisasi harus bisa menjual lebih banyak produk atau jasa kepada pelanggan, agar pelanggan mau membeli produk dan jasa lebih banyak, pelanggan harus bisa melihat keunggulan produk kita dibandingkan dengan kompetitor, dengan kata lain produk kita memenuhi ekspektasinya.",
+    "thumbnail": "/src/assets/images/image-ex.png",
+    "data": null
+  },
+  "section4": {
+    "title": "About Company",
+    "subtitle": "Karena untuk bisa mendapatkan lebih banyak keuntungan, organisasi harus bisa menjual lebih banyak produk atau jasa kepada pelanggan, agar pelanggan mau membeli produk dan jasa lebih banyak, pelanggan harus bisa melihat keunggulan produk kita dibandingkan dengan kompetitor, dengan kata lain produk kita memenuhi ekspektasinya.",
+    "description": "iBisnis.com hadir menjadi solusi terbaik dan terpercaya bagi bisnis Anda. Menawarkan beragam produk dan jasa sekaligus menjadi portal bisnis UKM di Indonesia. Jadi tunggu apa lagi? Daftar perusahaan Anda sekarang juga hanya di iBisnis.com.",
+    "thumbnail": "/src/assets/images/image-ex.png",
+    "data": [
+      {
+        "title": "SEO",
+        "thumbnail": "/src/assets/images/seo-1.png",
+        "description": "Meningkatkan peringkat bisnis Anda pada halaman utama Google dan ditemukan calon customer"
+      },
+      {
+        "title": "Dukungan Pelanggan",
+        "thumbnail": "/src/assets/images/customer-support-1.png",
+        "description": "Kami siap membantu melalui email, media sosial dan call center (+62315660008)"
+      },
+
+      {
+        "title": "Google Adwords",
+        "thumbnail": "/src/assets/images/adwords-1.png",
+        "description": "Memudahkan pencari menemukan sumber informasi sesuai dengan kata kunci"
+      },
+      {
+        "title": "Statistik Pengunjung",
+        "thumbnail": "/src/assets/images/web-traffic-1.png",
+        "description": "Layanan dari iBisnis yang menampilkan statistik pengunjung ."
+      }
+    ]
+  },
+  "section5": {
+    "title": "Products",
+    "subtitle": "",
+    "thumbnail": "",
+    "description": "Karena untuk bisa mendapatkan lebih banyak keuntungan, organisasi harus bisa menjual lebih banyak produk atau jasa kepada pelanggan, agar pelanggan mau membeli produk dan jasa lebih banyak, pelanggan harus bisa melihat keunggulan produk kita dibandingkan dengan kompetitor, dengan kata lain produk kita memenuhi ekspektasinya.",
+    "data": null
+  },
+  "section6": {
+    "title": "About Products",
+    "subtitle": "",
+    "description": "Karena untuk bisa mendapatkan lebih banyak keuntungan, organisasi harus bisa menjual lebih banyak produk atau jasa kepada pelanggan, agar pelanggan mau membeli produk dan jasa lebih banyak, pelanggan harus bisa melihat keunggulan produk kita dibandingkan dengan kompetitor, dengan kata lain produk kita memenuhi ekspektasinya.",
+    "thumbnail": "",
+    "data": null
+  },
+  "section7": {
+    "title": "Testimonial",
+    "subtitle": "",
+    "description": "Karena untuk bisa mendapatkan lebih banyak keuntungan, organisasi harus bisa menjual lebih banyak produk atau jasa kepada pelanggan, agar pelanggan mau membeli produk dan jasa lebih banyak, pelanggan harus bisa melihat keunggulan produk kita dibandingkan dengan kompetitor, dengan kata lain produk kita memenuhi ekspektasinya.",
+    "thumbnail": "/src/assets/images/bg-illustration.png",
+    "data": [
+      {
+          "name" : "Drew",
+          "img" : "/src/assets/images/drew.png",
+          "description" : "Karena untuk bisa mendapatkan lebih banyak keuntungan, organisasi harus bisa menjual lebih banyak produk atau jasa kepada pelanggan, agar pelanggan mau membeli produk dan jasa lebih banyak, pelanggan harus bisa melihat keunggulan produk kita dibandingkan dengan kompetitor, dengan kata lain produk kita memenuhi ekspektasinya."
+      },
+      {
+          "name" : "Drew",
+          "img" : "https://dev.ibisnis.com/images/thumbnails/62341d3ed125c.webp",
+          "description" : "Karena untuk bisa mendapatkan lebih banyak keuntungan, organisasi harus bisa menjual lebih banyak produk atau jasa kepada pelanggan, agar pelanggan mau membeli produk dan jasa lebih banyak, pelanggan harus bisa melihat keunggulan produk kita dibandingkan dengan kompetitor, dengan kata lain produk kita memenuhi ekspektasinya."
+      },
+      {
+          "name" : "Drew",
+          "img" : "https://dev.ibisnis.com/images/thumbnails/62341d3ed125c.webp",
+          "description" : "Karena untuk bisa mendapatkan lebih banyak keuntungan, organisasi harus bisa menjual lebih banyak produk atau jasa kepada pelanggan, agar pelanggan mau membeli produk dan jasa lebih banyak, pelanggan harus bisa melihat keunggulan produk kita dibandingkan dengan kompetitor, dengan kata lain produk kita memenuhi ekspektasinya."
+      }
+  ]},
+  "section8": {
+    "title": "News/Article",
+    "subtitle": "",
+    "description": "Karena untuk bisa mendapatkan lebih banyak keuntungan, organisasi harus bisa menjual lebih banyak produk atau jasa kepada pelanggan, agar pelanggan mau membeli produk dan jasa lebih banyak, pelanggan harus bisa melihat keunggulan produk kita dibandingkan dengan kompetitor, dengan kata lain produk kita memenuhi ekspektasinya.",
+    "thumbnail": "",
+    "data": null
+  },
+  "section9": {
+    "title": "",
+    "subtitle": "",
+    "description": "",
+    "thumbnail": "",
+    "data": null
+  },
+  "section10": {
+    "title": "",
+    "subtitle": "",
+    "description": "",
+    "thumbnail": "",
+    "data": null
+  },
+  "footer": {
+    "title": "",
+    "subtitle": "",
+    "description": "iBisnis.com hadir menjadi solusi terbaik dan terpercaya bagi bisnis Anda. Menawarkan beragam produk dan jasa sekaligus menjadi portal bisnis UKM di Indonesia.",
+    "thumbnail": "",
+    "data": [
+      {
+        "categories": "Information",
+        "data": [
+          {
+            "name": "About iBisnis",
+            "slug": "https://www.ibisnis.com/about-ibisnis"
+          },
+          {
+            "name": "Contact Us",
+            "slug": "https://www.ibisnis.com/contact"
+          },
+          {
+            "name": "FAQ",
+            "slug": "https://www.ibisnis.com/faq"
+          },
+          {
+            "name": "Affiliate",
+            "slug": "https://www.ibisnis.com/affiliate"
+          },
+          {
+            "name": "Privacy Policy",
+            "slug": "https://www.ibisnis.com/privacy"
+          }
+        ]
+      },
+      {
+        "categories": "Category",
+        "data": [
+          {
+            "name": "Business Profile",
+            "slug": "https://www.ibisnis.com/privacy"
+          },
+          {
+            "name": "Restaurants",
+            "slug": "https://www.ibisnis.com/restaurants"
+          }
+        ]
+      },
+      {
+        "categories": "Our Service",
+        "data": [
+          {
+            "name": "VIP Member",
+            "slug": "https://www.ibisnis.com/vip-member"
+          },
+          {
+            "name": "Restaurants",
+            "slug": "https://www.ibisnis.com/restaurants"
+          },
+          {
+            "name": "Website",
+            "slug": "https://www.ibisnis.com/website"
+          },
+          {
+            "name": "CRM",
+            "slug": "https://www.ibisnis.com/crm"
+          }
+        ]
+      }
+    ]
+  }
+}
